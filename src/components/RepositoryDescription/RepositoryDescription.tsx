@@ -38,12 +38,6 @@ const RepositoryDescription: React.FC = () => {
     );
   }
 
-  console.log(
-    currentRepository.repositoryTopics.edges.map(
-      (edge: Edge) => edge.node.topic.name,
-    ),
-  );
-
   return (
     <div className={styles['repository-description__container']}>
       <div className={styles['repository-description__info']}>
