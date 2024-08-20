@@ -1,0 +1,16 @@
+.header__container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background-color: $blue-green-color;
+}
+
+.header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5rem;
+  height: 5rem;
+  padding: 0 2rem;
+  width: $container-width;
+}

@@ -1,0 +1,18 @@
+.search-bar {
+  &__paper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 57rem;
+    height: 2.625rem;
+    padding: 0.5625rem 1rem;
+  }
+
+  &__input {
+    width: 57rem;
+  }
+
+  &__button {
+    height: 2.625rem;
+  }
+}

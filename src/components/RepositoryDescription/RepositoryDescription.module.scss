@@ -1,0 +1,45 @@
+.repository-description {
+  &__container {
+    flex-grow: 1;
+    background-color: $bg-secondary-color;
+    width: 30rem;
+  }
+
+  &__placeholder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 6.375rem);
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.5rem;
+  }
+
+  &__title {
+    font-size: 2rem;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__chip {
+    font-size: 13px !important;
+  }
+
+  &__stargazer-count {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  &__star-icon {
+    color: $yellow-color;
+  }
+}
