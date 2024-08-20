@@ -16,8 +16,25 @@ export interface NodeRepository {
   description: string;
   url: string;
   stargazerCount: number;
+  repositoryTopics: RepositoryTopics;
   primaryLanguage: PrimaryLanguage;
   licenseInfo: LicenseInfo;
+}
+
+export interface RepositoryTopics {
+  edges: Edge[];
+}
+
+export interface Edge {
+  node: Node;
+}
+
+export interface Node {
+  topic: Topic;
+}
+
+export interface Topic {
+  name: string;
 }
 
 export interface LicenseInfo {
@@ -46,9 +63,18 @@ export const fetchRepository = createAsyncThunk(
               name
               description
               url
+              repositoryTopics(first: 5) {
+                edges {
+                  node {
+                    topic {
+                      name
+                    }
+                  }
+                }
+              }
               primaryLanguage {
                 name
-              }
+                }
               stargazerCount
               licenseInfo {
                 name

@@ -42,4 +42,14 @@
   &__star-icon {
     color: $yellow-color;
   }
+
+  &__repository-topics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  &__full-desc {
+    margin-top: 0.5rem;
+  }
 }

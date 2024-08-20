@@ -1,9 +1,12 @@
 import { selectGithubRepository } from '@/redux/store';
 import { useAppSelector } from '@/hooks/redux';
-import { selectIsFetchRepositoryPending } from '@/redux/slices/githubRepository.slice';
+import {
+  Edge,
+  selectIsFetchRepositoryPending,
+} from '@/redux/slices/githubRepository.slice';
 import { Chip, CircularProgress } from '@mui/material';
-import StarIcon from '@mui/icons-material/Star';
 import { selectCurrentRepositoryId } from '@/redux/slices/table.slice';
+import StarIcon from '@mui/icons-material/Star';
 import styles from './RepositoryDescription.module.scss';
 
 const RepositoryDescription: React.FC = () => {
@@ -35,6 +38,12 @@ const RepositoryDescription: React.FC = () => {
     );
   }
 
+  console.log(
+    currentRepository.repositoryTopics.edges.map(
+      (edge: Edge) => edge.node.topic.name,
+    ),
+  );
+
   return (
     <div className={styles['repository-description__container']}>
       <div className={styles['repository-description__info']}>
@@ -59,7 +68,20 @@ const RepositoryDescription: React.FC = () => {
             </div>
           )}
         </div>
-        <p>{currentRepository.description}</p>
+        {currentRepository.repositoryTopics.edges.length > 0 && (
+          <div className={styles['repository-description__repository-topics']}>
+            {currentRepository.repositoryTopics.edges.map((edge: Edge) => (
+              <Chip
+                key={edge.node.topic.name}
+                className={styles['repository-description__chip']}
+                label={edge.node.topic.name}
+              />
+            ))}
+          </div>
+        )}
+        <p className={styles['repository-description__full-desc']}>
+          {currentRepository.description}
+        </p>
         <a
           target="_blank"
           rel="noopener noreferrer"
